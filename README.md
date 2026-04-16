@@ -117,7 +117,7 @@
   `@OneToOne`, `@ManyToOne` 연관관계가 Lazy Loading으로 설정되어 엔티티 목록을 순회하면서 각 행마다 별도의 SELECT가 발생했습니다.
 
 - **해결 방법**  
-  엔티티 조회 대신 **QueryDSL Projections(DTO 직접 조회)**를 사용하여 필요한 필드만 단일 JOIN 쿼리로 가져오도록 변경했습니다.
+  엔티티 조회 대신 QueryDSL Projections(DTO 직접 조회)를 사용하여 필요한 필드만 단일 JOIN 쿼리로 가져오도록 변경했습니다.
 
 #### Before: 엔티티 조회 → N+1 발생
 
@@ -222,30 +222,91 @@ Optional<User> findByIdForUpdate(Long userCreatedId);
 
 ## UI 스크린샷
 
-| 화면        | 스크린샷                                                                    |
-|-----------|-------------------------------------------------------------------------|
-| 홈 (비로그인)  | ![홈-비로그인](docs/images/home.png)                                         |
-| 홈 (로그인)   | ![홈-로그인](docs/images/home-login.png)                                    |
-| 회원가입      | ![회원가입1](docs/images/signup1.png)<br/>![회원가입2](docs/images/signup2.png) |
-| 로그인       | ![로그인](docs/images/login.png)                                           |
-| 관리자 대시보드  | ![관리자-대시보드](docs/images/admin-dashboard.png)                            |
-| 관리자 회원 목록 | ![관리자-회원관리](docs/images/admin-users.png)                                |
-| 관리자 회원 검색 | ![관리자-회원관리-검색](docs/images/admin-users-search.png)                      |
-| 관리자 회원 상세 | ![관리자-회원상세](docs/images/admin-user-details.png)                         |
-| 포인트 정책 목록 | ![관리자-포인트정책관리](docs/images/admin-points.png)                            |
-| 포인트 정책 수정 | ![관리자-포인트정책수정](docs/images/admin-point-update.png)                      |
-| 포인트 정책 등록 | ![관리자-포인트정책등록](docs/images/admin-point-register.png)                    |
-| 마이페이지     | ![마이페이지](docs/images/mypage.png)                                        |
-| 내 정보 수정   | ![마이페이지-내정보수정](docs/images/mypage-update.png)                           |
-| 비밀번호 변경   | ![마이페이지-비밀번호변경](docs/images/mypage-password.png)                        |
-| 회원 탈퇴     | ![마이페이지-회원탈퇴](docs/images/mypage-withdraw.png)                          |
-| 포인트 내역    | ![마이페이지-포인트내역](docs/images/mypage-points.png)                           |
-| 배송지 관리    | ![마이페이지-배송지관리](docs/images/mypage-addresses.png)                        |
-| 배송지 추가    | ![마이페이지-배송지추가](docs/images/mypage-address-register.png)                 |
-| 배송지 수정    | ![마이페이지-배송지수정](docs/images/mypage-address-update.png)                   |
-| 휴면 계정 활성화 | ![휴면계정활성화](docs/images/dormant.png)                                     |
-| 활성화 메일 발송 | ![휴면계정활성화-메일발송](docs/images/mail-send.png)                              |
-| 활성화 메일 본문 | ![휴면계정활성화-메일본문](docs/images/mail.png)                                   |
+<details>
+<summary><strong>홈 / 인증</strong></summary>
+
+### 홈 (비로그인)
+![홈-비로그인](docs/images/home.png)
+
+### 홈 (로그인)
+![홈-로그인](docs/images/home-login.png)
+
+### 회원가입
+![회원가입1](docs/images/signup1.png)<br/>![회원가입2](docs/images/signup2.png)
+
+### 로그인
+![로그인](docs/images/login.png)
+
+</details>
+
+<details>
+<summary><strong>관리자 기능</strong></summary>
+      
+### 관리자 대시보드
+![관리자-대시보드](docs/images/admin-dashboard.png)
+
+### 관리자 회원 목록
+![관리자-회원관리](docs/images/admin-users.png)
+
+### 관리자 회원 검색
+![관리자-회원관리-검색](docs/images/admin-users-search.png)
+
+### 관리자 회원 상세
+![관리자-회원상세](docs/images/admin-user-details.png)
+
+### 포인트 정책 목록
+![관리자-포인트정책관리](docs/images/admin-points.png)
+
+### 포인트 정책 수정
+![관리자-포인트정책수정](docs/images/admin-point-update.png)
+
+### 포인트 정책 등록
+![관리자-포인트정책등록](docs/images/admin-point-register.png)
+
+</details>
+
+<details>
+<summary><strong>마이페이지</strong></summary>
+      
+### 마이페이지
+![마이페이지](docs/images/mypage.png)
+
+### 내 정보 수정
+![마이페이지-내정보수정](docs/images/mypage-update.png)
+
+### 비밀번호 변경
+![마이페이지-비밀번호변경](docs/images/mypage-password.png)
+
+### 회원 탈퇴
+![마이페이지-회원탈퇴](docs/images/mypage-withdraw.png)
+
+### 포인트 내역
+![마이페이지-포인트내역](docs/images/mypage-points.png)
+
+### 배송지 관리
+![마이페이지-배송지관리](docs/images/mypage-addresses.png)
+
+### 배송지 추가
+![마이페이지-배송지추가](docs/images/mypage-address-register.png)
+
+### 배송지 수정
+![마이페이지-배송지수정](docs/images/mypage-address-update.png)
+
+</details>
+
+<details>
+<summary><strong>휴면 계정</strong></summary>
+      
+### 휴면 계정 활성화
+![휴면계정활성화](docs/images/dormant.png)
+
+### 활성화 메일 발송
+![휴면계정활성화-메일발송](docs/images/mail-send.png)
+
+### 활성화 메일 본문
+![휴면계정활성화-메일본문](docs/images/mail.png)
+
+</details>
 
 ---
 
